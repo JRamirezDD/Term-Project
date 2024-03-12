@@ -22,7 +22,8 @@ class RegistrationClient:
         
         self.listening_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.listening_socket.bind((client_ip, client_port))
-        listening_thread = threading.Thread(target=self.listen_for_connections()).start()
+        threading.Thread(target=self.listen_for_connections).start()
+        return
         
         
     def handle_incoming_connection(self,client_socket: socket.socket):
