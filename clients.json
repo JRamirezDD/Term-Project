@@ -1,5 +1,4 @@
 {
     "TestUser": "{\"Nickname\": \"TestUser\", \"IP\": \"192.168.1.1\", \"Listening_Port\": \"5050\"}",
-    "Aakash": "{\"Nickname\": \"Aakash\", \"IP\": \"0.0.0.0\", \"Listening_Port\": 49948}",
-    "Omar": "{\"Nickname\": \"Omar\", \"IP\": \"10.16.140.176\", \"Listening_Port\": 50315}"
+    "Aakash": "{\"Nickname\": \"Aakash\", \"IP\": \"0.0.0.0\", \"Listening_Port\": 49948}"
 }

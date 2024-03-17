@@ -20,8 +20,9 @@ def register():
     client_nickname = nameEntry.get();
     client_info = Client_Info(client_nickname,client_private_ip,client_listening_port)
     response = client.register_with_server(client_info)
+    responseType = response.header.type
 
-    if(response) == ResponseTypes.SUCCESS:
+    if(responseType) == ResponseTypes.SUCCESS:
         end = "Succesfully registered " + client_nickname
     else:
         end = f"Nickname '{client_nickname}' already existing in server"
@@ -31,27 +32,29 @@ def register():
 
 def retrieve():
     client_nickname = nameEntry.get();
-    client_info = Client_Info(client_nickname,client_private_ip,client_listening_port)
     response = client.request_client_info(client_nickname)
+    responseBody = response.body.data
     
-    answer = tk.Label(frame, text=response,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
+    answer = tk.Label(frame, text=responseBody,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
     answer.place(x=235,y=150)
 
 
 def retrieve_all():
     client_nickname = nameEntry.get();
-    client_info = Client_Info(client_nickname,client_private_ip,client_listening_port)
     response = client.request_all_clients()
+
+    responseBody = response.body.data
     
-    answer = tk.Label(frame, text=response,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
+    answer = tk.Label(frame, text=responseBody,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
     answer.place(x=235,y=150)
 
 def deregister():
     client_nickname = nameEntry.get();
-    client_info = Client_Info(client_nickname,client_private_ip,client_listening_port)
     response = client.deregister_with_server(client_nickname)
     
-    answer = tk.Label(frame, text=response,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
+    responseBody = response.body.data
+
+    answer = tk.Label(frame, text=responseBody,anchor=NW, bg="#FFC0CB", font=("Helvetica", 11), width= 60, height=20,wraplength=500)
     answer.place(x=235,y=150)
 
 
@@ -124,13 +127,13 @@ retrieve_all_clients.place(x=10,y=500)
 stress = tk.IntVar
 connection = tk.IntVar
 # Test checkboxes
-stressTest = tk.Checkbutton(frame,text = "Stress test",activebackground="black" , activeforeground="blue" 
-                 ,bg="#263D42",bd=10, 
+stressTest = tk.Checkbutton(frame,text = "Stress test",activebackground="black" , activeforeground="white" 
+                 ,bg="#263D42",bd=10, fg="white", 
                  onvalue = 1, offvalue = 0, variable=stress)
 stressTest.place(x=400, y=25)
 
-connectionTest = tk.Checkbutton(frame,text = "Connection test",activebackground="black" , activeforeground="blue" 
-                 ,bg="#263D42",bd=10, 
+connectionTest = tk.Checkbutton(frame,text = "Connection test",activebackground="black" , activeforeground="white" 
+                 ,bg="#263D42",bd=10, fg="white",
                  onvalue = 1, offvalue = 0, variable=connection)
 connectionTest.place(x=400, y=70)
 
