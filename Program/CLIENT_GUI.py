@@ -18,6 +18,7 @@ client = RegistrationClient(server_host, server_port, client_info)
 
 def register():
     client_nickname = nameEntry.get();
+    client_listening_port = get_free_port()
     client_info = Client_Info(client_nickname,client_private_ip,client_listening_port)
     response = client.register_with_server(client_info)
     responseType = response.header.type
