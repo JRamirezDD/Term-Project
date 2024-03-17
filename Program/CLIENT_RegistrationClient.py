@@ -8,7 +8,6 @@ from CLIENT_Client_Info import Client_Info
 from PROTOCOL_Request import RequestBody, RequestHeader, RequestTypes, Request
 from PROTOCOL_Response import Response, ResponseBody, ResponseHeader, ResponseTypes
 from SERVER_RegistrationServer import RegistrationServer
-from connectivity_test import connectivity_test
 
 class RegistrationClient:    
     def __init__(self, server_host: str, server_port: int, client_info: Client_Info):
